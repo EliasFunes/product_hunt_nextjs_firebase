@@ -96,7 +96,9 @@ const CrearCuenta = () => {
                             />
                         </Campo>
                         {errores.password && <Error>{errores.password}</Error>}
+
                         <InputSubmit type="submit" value="Crear Cuenta"/>
+
                         {error && <Error>{error}</Error>}
                     </Formulario>
                 </>
