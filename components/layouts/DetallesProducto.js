@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from "@emotion/styled";
 import formatDistanceToNow from 'date-fns/formatDistanceToNow';
-import {es} from 'date-fns/locale';
+import { es } from 'date-fns/locale';
 import Link from 'next/link';
 
 const Producto = styled.li`
@@ -93,8 +93,9 @@ const DetallesProducto = ({producto}) => {
                     <Imagen src={urlImagen}/>
                 </div>
                 <div>
-                    <Link href="/productos/[id]" as={`/productos/${id}`}></Link>
-                    <Titulo>{nombre}</Titulo>
+                    <Link href="/productos/[id]" as={`/productos/${id}`}>
+                        <Titulo>{nombre}</Titulo>
+                    </Link>
                     <TextoDescripcion>{descripcion}</TextoDescripcion>
                     <Comentarios>
                         <div>
@@ -102,7 +103,7 @@ const DetallesProducto = ({producto}) => {
                             <p>{comentarios.length} Comentarios</p>
                         </div>
                     </Comentarios>
-                    <p>Publicado hace: {formatDistanceToNow(new Date(creado), {locale: es})}</p>
+                    <p>Publicado hace: { formatDistanceToNow( new Date(creado), {locale: es} )} </p>
                 </div>
             </DescripcionProducto>
             <Votos>

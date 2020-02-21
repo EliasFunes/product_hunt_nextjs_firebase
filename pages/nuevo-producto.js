@@ -55,7 +55,8 @@ const NuevoProducto = () => {
             creador: {
                 id: usuario.uid,
                 nombre: usuario.displayName
-            }
+            },
+            haVotado: []
         }
 
         //insertarlo en la base de datos
@@ -125,7 +126,7 @@ const NuevoProducto = () => {
                                     <input
                                         type="text"
                                         id="nobre"
-                                        placeholder="Tu nombre"
+                                        placeholder="Nombre del producto"
                                         name="nombre"
                                         value={nombre}
                                         onChange={handleChange}
