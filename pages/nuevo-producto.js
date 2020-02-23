@@ -1,13 +1,12 @@
-import React, {useState, useContext} from 'react';
+import React, {useContext, useState} from 'react';
 import {css} from "@emotion/core";
-import Router, {useRouter} from "next/router";
+import {useRouter} from "next/router";
 import FileUploader from "react-firebase-file-uploader";
 import Layout from "../components/layouts/Layout";
 
-import {Formulario, Campo, InputSubmit, Error} from "../components/ui/Formulario";
+import {Campo, Error, Formulario, InputSubmit} from "../components/ui/Formulario";
 import {FirebaseContext} from "../firebase";
 import Error404 from "../components/layouts/404";
-
 //validaciones
 import useValidacion from "../hooks/useValidacion";
 import validarCrearProducto from "../validacion/validarCrearProducto";
@@ -60,7 +59,7 @@ const NuevoProducto = () => {
         }
 
         //insertarlo en la base de datos
-        firebase.db.collection('productos').add(producto);
+        await firebase.db.collection('productos').add(producto);
 
         return router.push('/');
     }

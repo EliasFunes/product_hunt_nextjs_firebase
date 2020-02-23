@@ -59,13 +59,13 @@ const Producto = () => {
             }
             obtenerProductos();
         }
-    }, [id]);
+    }, [id, consultarDB]);
 
     if(Object.keys(producto).length === 0 && !error)  return 'Cargando...';
     const {comentarios, creado, descripcion, empresa, nombre, url, urlImagen, votos, creador, haVotado} = producto;
 
     //administrar y validar votos
-    const votarProducto = () => {
+    const votarProducto = async () => {
         if(!usuario) {
             return router.push('/login');
         }
@@ -80,7 +80,7 @@ const Producto = () => {
         const nuevoHaVotado = [...haVotado, usuario.uid];
 
         //Actualizar en la base de datos
-        firebase.db.collection('productos').doc(id).update({votos: nuevoTotal, haVotado: nuevoHaVotado});
+        await firebase.db.collection('productos').doc(id).update({votos: nuevoTotal, haVotado: nuevoHaVotado});
 
         //Actualizar el state
         guardarProducto({
@@ -108,7 +108,7 @@ const Producto = () => {
         }
     }
 
-    const comentarioHandleSubmit = e => {
+    const comentarioHandleSubmit = async e => {
         e.preventDefault();
 
         if(!usuario) {
@@ -123,7 +123,7 @@ const Producto = () => {
         const nuevosComentarios = [...comentarios, comentario];
 
         //Actualizar Base de datos
-        firebase.db.collection('productos').doc(id).update({
+        await firebase.db.collection('productos').doc(id).update({
             comentarios: nuevosComentarios
         });
 

@@ -14,8 +14,8 @@ const useProductos = orden => {
         obtenerProductos();
     }, []);
 
-    function manejarSnapshot(snapshot) {
-        const productos = snapshot.docs.map(doc => {
+    async function manejarSnapshot(snapshot) {
+        const productos = await snapshot.docs.map(doc => {
             return {
                 id: doc.id,
                 ...doc.data()

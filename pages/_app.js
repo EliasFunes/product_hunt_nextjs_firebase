@@ -16,7 +16,7 @@ const MyApp = props => {
         >
             <Component {...pageProps}/>
         </FirebaseContext.Provider>
-    )
+    );
 }
 
 export  default MyApp;
