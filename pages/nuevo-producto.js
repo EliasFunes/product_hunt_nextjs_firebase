@@ -5,7 +5,7 @@ import FileUploader from "react-firebase-file-uploader";
 import Layout from "../components/layouts/Layout";
 
 import {Campo, Error, Formulario, InputSubmit} from "../components/ui/Formulario";
-import {FirebaseContext} from "../firebase";
+import {FirebaseContext} from "../firebase/index";
 import Error404 from "../components/layouts/404";
 //validaciones
 import useValidacion from "../hooks/useValidacion";

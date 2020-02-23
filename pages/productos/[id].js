@@ -1,12 +1,11 @@
 import React, {useEffect, useContext, useState} from 'react';
 import {useRouter} from "next/router";
-import {FirebaseContext} from '../../firebase';
 import Layout from "../../components/layouts/Layout";
 import { css } from "@emotion/core";
 import styled from "@emotion/styled";
 import formatDistanceToNow from "date-fns/formatDistanceToNow";
 import {es} from "date-fns/locale";
-
+import {FirebaseContext} from "../../firebase/index";
 
 import Error404 from "../../components/layouts/404";
 import {Campo, InputSubmit} from "../../components/ui/Formulario";
